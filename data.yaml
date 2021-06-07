@@ -21,9 +21,7 @@ pages:
     template: html_bootstrap
     slug: parking-tickets
     filepath: content/output.html
-  - type: html
-    title: In Alaska’s remote Yukon-Kuskokwim Delta, COVID-19 surges present distinct challenges 
-    template: html
+  - title: In Alaska’s remote Yukon-Kuskokwim Delta, COVID-19 surges present distinct challenges 
     slug: y-k-delta
     filepath: static/y-k-delta-scrollytelling/ykdelta.html
   - type: html
