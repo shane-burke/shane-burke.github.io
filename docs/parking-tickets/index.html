@@ -13,8 +13,6 @@
         <div class="row justify-content-center"><!-- headline and intro -->
             <div class="col-lg-10 ">
                 <p><a href="..">&#8592; back to homepage</a></p>
-
-                <h1 class="text-success">Importing packages</h1>
                 <div class="cell code" data-execution_count="1" data-scrolled="true">
 <div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pprintpp <span class="im">import</span> pprint <span class="im">as</span> pp</span>
@@ -29,7 +27,7 @@
 </div>
 </div>
 <section id="reading-in-the-data" class="cell markdown">
-<h1 class="text-success">Reading in the data</h1>
+<h1>Reading in the data</h1>
 </section>
 <div class="cell code" data-execution_count="3">
 <div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>use_these <span class="op">=</span> [<span class="st">&#39;Summons Number&#39;</span>,</span>
@@ -101,7 +99,7 @@
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co">#I should probably pull a random sample from just one month or year for the choropleth.</span></span></code></pre></div>
 </div>
 <section id="cleaning-the-data-boroughs-date-time-add-random-float-for-sampling" class="cell markdown">
-<h1 class="text-success">Cleaning the Data: boroughs, date time, add random float for sampling</h1>
+<h1>Cleaning the Data: boroughs, date time, add random float for sampling</h1>
 </section>
 <div class="cell code" data-execution_count="7">
 <div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>test[<span class="st">&#39;Violation County&#39;</span>] <span class="op">=</span> test[<span class="st">&#39;Violation County&#39;</span>].<span class="bu">str</span>.replace(<span class="st">&#39;BK&#39;</span>,<span class="st">&#39;K&#39;</span>)</span>
@@ -132,7 +130,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <section id="pulling-sample-more-cleaning-to-process-addresses" class="cell markdown">
-<h1 class="text-success">Pulling sample; more cleaning to process addresses</h1>
+<h1>Pulling sample; more cleaning to process addresses</h1>
 </section>
 <div class="cell code" data-execution_count="12">
 <div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>sample <span class="op">=</span> test[test.random <span class="op">&lt;</span> <span class="fl">.001</span>]</span>
@@ -824,7 +822,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <section id="smaller-sample-bc-geopy-is-slow" class="cell markdown">
-<h1 class="text-success">Smaller sample b/c GeoPy is slow</h1>
+<h1>Smaller sample b/c GeoPy is slow</h1>
 </section>
 <div class="cell code" data-execution_count="69">
 <div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>sample_10k <span class="op">=</span> sample.sort_values(by<span class="op">=</span><span class="st">&quot;random&quot;</span>).head(<span class="dv">10000</span>)</span></code></pre></div>
@@ -1145,7 +1143,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <section id="geocoding-w-geopy-coordinates" class="cell markdown">
-<h1 class="text-success">Geocoding w/ geopy: coordinates</h1>
+<h1>Geocoding w/ geopy: coordinates</h1>
 </section>
 <div class="cell code" data-execution_count="33">
 <div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas</span>
@@ -1172,7 +1170,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 </div>
 <section id="testing-out-just-10" class="cell markdown">
-<h1 class="text-success"Testing out just 10</h1>
+<h1>Testing out just 10</h1>
 </section>
 <div class="cell code" data-execution_count="59">
 <div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>sample_10 <span class="op">=</span> <span class="bu">list</span>(sample_10k.address)[:<span class="dv">10</span>]</span>
@@ -1212,7 +1210,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 </div>
 </div>
 <section id="doing-randomized-10000" class="cell markdown">
-<h1 class="text-success">Doing randomized 10,000</h1>
+<h1>Doing randomized 10,000</h1>
 </section>
 <div class="cell code" data-execution_count="77">
 <div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>address_10k <span class="op">=</span> <span class="bu">list</span>(sample_10k.address)</span>
@@ -2427,7 +2425,7 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"></code></pre></div>
 </div>
 <section id="old-attempted-zip-code-coding-useless" class="cell markdown">
-<h1 class="text-success">OLD: attempted zip code coding. useless!</h1>
+<h1>OLD: attempted zip code coding. useless!</h1>
 </section>
 <div class="cell code">
 <div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>sample_clean <span class="op">=</span> sample.address.<span class="bu">map</span>(<span class="kw">lambda</span> x: <span class="bu">str</span>(x).replace(<span class="st">&#39;nan &#39;</span>,<span class="st">&#39;&#39;</span>))</span></code></pre></div>
