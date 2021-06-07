@@ -1,7 +1,7 @@
 
 
 a {
-    color:#6fa8aa;
+    color:#6E6975;
     margin: auto;
 }
 
@@ -40,8 +40,8 @@ ul.spread {
 }
 
 .light-theme {
-    background-color: rgb(255, 210, 235);
-    color: rgb(34, 80, 80);
+    background-color: #F6EEFD;
+    color: #6E6975;
     font-family: Helvetica;
 }
 

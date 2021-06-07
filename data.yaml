@@ -21,11 +21,8 @@ pages:
     template: html_bootstrap
     slug: parking-tickets
     filepath: content/output.html
-  - title: In Alaska’s remote Yukon-Kuskokwim Delta, COVID-19 surges present distinct challenges 
-    slug: y-k-delta
-    filepath: static/y-k-delta-scrollytelling/index.html
   - type: html
-    title: Visualizing Billboard's Year-End Top 100, 2004 to now
-    template: html
-    slug: billboard
-    filepath: static/billboard/index.html
+    title: Y-K Delta
+    template: html_bootstrap
+    slug: y-k-delta
+    filepath: content/ykd/
