@@ -1,0 +1,23 @@
+name: shane burke
+bio: data journalist based out of new york city covering policy, social issues and culture
+links:
+  - target: mailto:shane.burke@columbia.edu
+    text: 📧 email
+  - target: https://shane.news
+    text: 🏠 homepage
+  - target: https://twitter.com/shqne
+    text: '@shqne'
+pages:
+  - type: gdoc
+    title: More and more Americans are moving to the South and West
+    slug: migration-story
+    url: https://docs.google.com/document/d/1928JMYI4Jtvj4FhAdBWHlP3vMIY2IoB8B0qDMC0QQdI/edit?usp=sharing
+  - type: gdoc
+    title: Zoloft Nation - The popular antidepressant has skyrocketed in use in the past decade
+    slug: zoloft-nation
+    url: https://docs.google.com/document/d/14G6hfD25ve4LseYoVYB8zhmwH5qmaoBLjG4CsV3-QtY/edit?usp=sharing
+  - type: html
+    title: NYC Parking Tickets Analysis
+    template: html_bootstrap
+    slug: parking-tickets
+    filepath: content/output.html
