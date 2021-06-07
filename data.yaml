@@ -23,7 +23,7 @@ pages:
     filepath: content/output.html
   - type: html
     title: In Alaska’s remote Yukon-Kuskokwim Delta, COVID-19 surges present distinct challenges 
-    template: html_bootstrap
+    template: html
     slug: y-k-delta
     filepath: static/y-k-delta-scrollytelling/ykdelta.html
   - type: html
