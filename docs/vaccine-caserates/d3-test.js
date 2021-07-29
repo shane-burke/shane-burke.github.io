@@ -1,6 +1,6 @@
 (function () {
 
-  const margin = { top: 40, right: 30, bottom: 20, left: 40 }
+  const margin = { top: 40, right: 30, bottom: 100, left: 40 }
 
   const width = 600 - margin.left - margin.right
   const height = 600 - margin.top - margin.bottom
@@ -18,7 +18,7 @@
   const xPositionScale = d3.scaleLinear()
     .domain([0, 100])
     .range([0, width])
-
+   
   const yPositionScale = d3.scaleLinear()
     .domain([0, 1250])
     .range([height, 0])
@@ -64,7 +64,16 @@
     .attr('font-family', 'Helvetica')
     .attr('font-weight', 400)
 
-
+  const sourceLabel = svg.append("text")
+    .attr("x", xPositionScale(-5))
+    .attr('text-anchor', 'left')
+    .attr("y", yPositionScale(-55))
+    .attr("dy", "20")
+    .text("Source: Our World in Data")
+    .attr('font-size', '14')
+    .attr('fill', 'grey')
+    .attr('font-family', 'Helvetica')
+    .attr('font-weight', 400)
 
   d3.csv("vaccines_cases.csv")
     .then(ready)
