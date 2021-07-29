@@ -2,8 +2,8 @@
 
   const margin = { top: 40, right: 30, bottom: 20, left: 40 }
 
-  const width = 400 - margin.left - margin.right
-  const height = 500 - margin.top - margin.bottom
+  const width = 600 - margin.left - margin.right
+  const height = 600 - margin.top - margin.bottom
 
   // You'll probably need to edit this one
   const svg = d3.select("#chart").append("svg")
@@ -29,7 +29,7 @@
 
 
   const countryLabel = svg.append("text")
-    .attr("x", xPositionScale(76))
+    .attr("x", xPositionScale(85))
     .attr('text-anchor', 'end')
     .attr("y", yPositionScale(1100)) 
     .text("")
@@ -43,6 +43,28 @@
     .text("")
     .attr('font-size', '12')
     .attr('font-family', 'Helvetica')
+
+  const titleLabel1 = svg.append("text")
+    .attr("x", xPositionScale(50))
+    .attr('text-anchor', 'middle')
+    .attr("y", yPositionScale(1200))
+    .text("Covid-19 vaccination doses and daily new cases by country")
+    .attr('font-size', '16')
+    .attr('font-family', 'Helvetica')
+    .attr('font-weight', 800)
+
+  const titleLabel2 = svg.append("text")
+    .attr("x", xPositionScale(50))
+    .attr('text-anchor', 'middle')
+    .attr("y", yPositionScale(1200))
+    .attr("dy", "20")
+    .text("(At July 8th 2021 or latest available)")
+    .attr('font-size', '14')
+    .attr('fill', 'grey')
+    .attr('font-family', 'Helvetica')
+    .attr('font-weight', 400)
+
+
 
   d3.csv("vaccines_cases.csv")
     .then(ready)
@@ -86,11 +108,11 @@
         .attr('y', (d, i) => i * 20 + 200)
         .text(d => d)
         .attr('dy', 6) //y offset
-        .attr('font-size', 10)
+        .attr('font-size', 12)
 
   
     d3.select("#step-1").on('stepin', function() {
-      countryLabel.text('Seychelles').attr("x", xPositionScale(76)).attr("y", yPositionScale(1100))
+      countryLabel.text('Seychelles').attr("x", xPositionScale(78)).attr("y", yPositionScale(1090))
       countryLabel2.text('')
       
       
@@ -124,8 +146,8 @@
 
     d3.select("#step-2").on('stepin', function() {
       // Reset fill and stroke when scrolling to step 2
-      countryLabel.text('United Kingdom').attr("x", xPositionScale(70)).attr("y", yPositionScale(430))
-      countryLabel2.text('Cyprus').attr("x", xPositionScale(56)).attr("y", yPositionScale(780))
+      countryLabel.text('United Kingdom').attr("x", xPositionScale(75)).attr("y", yPositionScale(434))
+      countryLabel2.text('Cyprus').attr("x", xPositionScale(57)).attr("y", yPositionScale(795))
       
       d3.selectAll('circle')
         .filter(d => (d.location !== 'United Kingdom') || (d.location !== 'Cyprus'))
@@ -144,7 +166,7 @@
 
     d3.select("#step-3").on('stepin', function() {
       // Reset fill and stroke when scrolling to step 2
-      countryLabel.text('Mongolia').attr("x", xPositionScale(70)).attr("y", yPositionScale(638))
+      countryLabel.text('Mongolia').attr("x", xPositionScale(68)).attr("y", yPositionScale(638))
       countryLabel2.text('')
       
       
