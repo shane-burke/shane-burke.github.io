@@ -1,0 +1,187 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/bootstrap-hw.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/6.7.0/d3.min.js" integrity="sha512-cd6CHE+XWDQ33ElJqsi0MdNte3S+bQY819f7p3NUHgwQQLXSKjE4cPZTeGNI+vaxZynk1wVU3hoHmow3m089wA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Radial homework</title>
+  </head>
+</head>
+<body>
+  <h1>Still troubleshooting this. Couldn't figure out small multiples, and did something weird for 7</h1>
+<div class="container">
+
+    <div class="row">
+        <div class="col-12">
+          <h1>Homework: Radials and small multiples</h1>
+      
+            <p class="alert alert-warning">Completed version should look like <a href='assets/homework-completed.pdf'>this one</a>, and hints can be found in the <code>hints/</code> folder.</p>
+        </div>
+      </div>
+      
+<div class="row mt-3">
+  <div class="col-12">
+
+    <h3>Chart 1: A simple, centered pie chart</h3>
+    <p>Except it's kind of sneaky because I teach you something else while we're doing it.</p>
+    <p>Dataset is <code>data/time-breakdown.csv</code></p>
+    <div id="chart-1"></div>
+    
+    
+    <script type="text/javascript" src="scripts/01-pie.js"></script>
+    
+    <div class="row mt-3">
+      <div class="col-12">
+
+        <h3>Important lesson: Small multiples</h3>
+        <p>Now that we've made one pie chart: sometimes you have a dataset like <code>time-breakdown-all.csv</code>, where you might say: "I want to group these by some column, and then make multiple pie charts, one for each group." So just like what you did before, but instead of just one we'll make several of them!</p>
+        <p>Great! Easy, simple, let's do it. <strong>You're going to use the code from the last chart, but change it a liiiiitle bit</strong>. First you'll put your datapoints into groups, just like you would in pandas.</p>
+        <pre><code>let groups = d3.group(datapoints, d => d.project)</code></pre>
+       <p>Then you need to draw a <em>thing</em> for each and every group. Not a circle, not a line, not a shape... a <em>thing</em>, a whole chart! Just like you use a <code>div</code> in HTML for "this is just some stuff," you use a <code>g</code> element in SVG.</p>
+       <pre><code>svg.selectAll('.sub-chart')
+  .data(groups)
+  .join('g')</code></pre>
+        <p>But now we need to add a separate chart <em>inside of each <code>g</code></em>. Which means we'll need to do the whole <code>selectAll</code> etc etc thing. But... how?</p>
+        <pre><code>svg.selectAll('.sub-chart')
+  .data(groups)
+  .join('g')
+  .each(function([groupName, groupData]) {
+    const g = d3.select(this)
+    console.log("group name is", groupName)
+    console.log("group data is", groupData)
+    g.selectAll('...')
+      .data(groupData)
+      .append('...')
+  })</code></pre>
+        <p>A lot to break down there! First, we're going to use <code>.each</code> to loop through each one of our <code>g</code> elements. Normally we'd do a <code>function(d)</code> or <code>d =></code> to get the data associated with each <code>g</code>, but each datapoint <em>is actually a group of datapoints, remember?</em>. In theory we could use <code>d[0]</code> for the name of the group and <code>d[1]</code> for the datapoints in the group, but we can do a weird confusing thing with JavaScript to (kind of?) make it easier.</p>
+        <p>The change is to do <code>function([groupName, groupData])</code>, which automatically makes the first thing <code>groupName</code> and the second thing <code>groupData</code> (so we don't have to do <code>d[0]</code> and <code>d[1]</code>).</p>
+        <pre><code>svg.selectAll('.sub-chart')
+  .data(groups)
+  .join('g')
+  .each(function([groupName, groupData]) {
+    const g = d3.select(this)
+    console.log("group name is", groupName)
+    console.log("group data is", groupData)
+
+    g.selectAll('...')
+      .data(groupData)
+      .append('...')
+  })</code></pre>
+      <p>After that point: we just do everything like normal! Just use <code>g</code> everywhere you'd use <code>svg</code>, and <code>groupData</code> instead of <code>datapoints</code>.</p>
+      <p>You'll have some trouble - especially around making them not overlap - but check the hints folder to more tips!</p>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-12">
+
+    <h3>Chart 2: Pie chart, small multiples</h3>
+    <p>Same as above, but small multiples'd. You don't need to label the wedges.</p>
+    <p>You could use <code>d3.selectAll('svg')</code> and make a separate SVG for each graphic, but in this case <strong>do not use multiple SVGs!</strong> I want this all in one SVG.</p>
+    <p>Dataset is <code>data/time-breakdown-all.csv</code></p>
+    <div id="chart-2"></div>
+    
+    <script type="text/javascript" src="scripts/02-pie-multiples.js"></script>
+
+
+<h3>Chart 3: Fixed-wedge size pie, or radial bar graph</h3>
+<p>You can actually the pie generator for this! You don't have to, though.</p>
+<p>Dataset is <code>data/ny-temps.csv</code></p>
+<div id="chart-3"></div>
+
+
+<script type="text/javascript" src="scripts/03-wedges.js"></script>
+
+<h3>Chart 3b: Small multiples of Chart 3</h3>
+<p>Now you'll just have to re-use your code to distribute it across the x axis. Dataset is <code>data/all-temps.csv</code></p>
+<div id="chart-3b"></div>
+
+
+<script type="text/javascript" src="scripts/03b-wedges-multiples.js"></script>
+
+<h3>Chart 3c: Chart 3, also showing the minimum temperature for each month</h3>
+<p>Isn't this getting fun? Dataset is <code>data/all-temps.csv</code></p>
+<div id="chart-3c"></div>
+
+<script type="text/javascript" src="scripts/03c-donut-wedges-multiples.js"></script>
+
+<h3>Chart 4: Radial area charts</h3>
+<p>Dataset is <code>data/ny-temps.csv</code></p>
+<div id="chart-4"></div>
+
+
+<script type="text/javascript" src="scripts/04-radial-area.js"></script>
+
+<h3>Chart 5: Radial area charts, small multiples </h3>
+<p>More small multiples! Dataset is <code>data/all-temps.csv</code></p>
+<div id="chart-5"></div>
+
+<script type="text/javascript" src="scripts/05-radial-area-multiples.js"></script>
+
+<h3>Chart 6: A radar chart</h3>
+<div id="chart-6"></div>
+
+
+<script type="text/javascript" src="scripts/06-radar.js"></script>
+
+<h3>Chart 7: A weird, fun radial graph </h3>
+<p>We're copying <a href="https://blogs.scientificamerican.com/sa-visual/why-are-so-many-babies-born-around-8-00-a-m/">this one</a>! It is <em>completely</em> unreasonable to expect you to do it, which is why it's going to be extra fun. You also learn some weird stuff.</p>
+<p>Dataset is <code>data/time-binned.csv</code></p>
+<div id="chart-7"></div>
+
+<script type="text/javascript" src="scripts/07-mystery.js"></script>
+
+<h3>Chart 8: NBA radar chart</h3>
+<p>This is a lesson in how to deal with data that isn't exactly what you're looking for. Also uses weird stuff. Data in <code>data/nba.csv</code></p>
+<div id="chart-8">
+</div>
+
+<script type="text/javascript" src="scripts/08-fancy-radar.js"></script>
+
+<h3>Chart 9: NBA radar chart small multiples</h3>
+<p>If you've made one, you've made them all! Kind of.</p>
+<p>Data in <code>data/nba.csv</code></p>
+<div id="chart-9">
+</div>
+
+
+<script type="text/javascript" src="scripts/09-fancy-radar-multiples.js"></script>
+
+
+  </div>
+</div>
+
+<style>
+  .container {
+    max-width: 1100px;
+  }
+
+  #chart-7 svg {
+    display: block;
+    margin: 0 auto;
+  }
+  #chart-9 {
+    text-align: center;
+  }
+
+  #chart-8 svg {
+    display: block;
+    margin: 0 auto;
+  }
+  #chart-8 .band-numbers text {
+    font-size: 10px;
+    alignment-baseline: middle;
+    text-anchor: middle;
+  }
+
+  #chart-9 .band-numbers text {
+    font-size: 6px;
+    alignment-baseline: middle;
+    text-anchor: middle;
+  }
+</style>
+
+
+</div>
+</body>
+</html>
