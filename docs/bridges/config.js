@@ -64,7 +64,8 @@ let footerDiv =
     '<p>Federal lawmakers this month just passed the infrastructure bill. It may take years before an investment in infrastructure repairs improves the lives of truckers like Douthit, the Arkansas driver, in the Mississippi River Valley.</p>' +
     '<p>But, when the bridges are fixed with money from the infrastructure bill, he may see where his tax dollars ended up. Before the bill was passed, he questioned where his tax money went, because he said the roads and bridges he drives on “are terrible.”</p>' +
     '<p>For now, he said, he’s just relieved that his commute times are returning to normal.</p>'+
-  '<br/><br/><br/><hr/>';
+    '<br/><br/><br/><hr/>'+
+    'Points Unknown';
 
 
 let config = {
