@@ -234,7 +234,7 @@ map.on("load", function () {
     type: "fill",
     source: {
       type: "geojson",
-      data: "https://cdn.glitch.com/003422e1-b274-45c1-8d4d-64dc89268e6d%2FcountiesBridgeDataTest.geojson?v=1628000284356",
+      data: "data/countiesBridgeDataTest.geojson",
     },
     maxzoom: 8,
     'paint': {
@@ -268,7 +268,7 @@ map.on("load", function () {
     type: "line",
     source: {
       type: "geojson",
-      data: "https://cdn.glitch.com/003422e1-b274-45c1-8d4d-64dc89268e6d%2FcountiesBridgeDataTest.geojson?v=1628000284356",
+      data: "data/countiesBridgeDataTest.geojson",
     },
     //maxzoom: 11,
     //minzoom: 6,
@@ -285,7 +285,7 @@ map.on("load", function () {
     type: "line",
     source: {
       type: "geojson",
-      data: "https://cdn.glitch.com/003422e1-b274-45c1-8d4d-64dc89268e6d%2FstatesBridgeData.geojson?v=1628000307612",
+      data: "data/statesBridgeData.geojson",
     },
     maxzoom: 6,
     paint: {
@@ -300,7 +300,7 @@ map.on("load", function () {
     type: "circle",
     source: {
       type: "geojson",
-      data: 'https://cdn.glitch.com/1392c253-9dd4-4678-90f9-362a98939d08%2FbridgePoints.geojson?v=1628730851344',
+      data: 'data/bridgePoints.geojson',
     },
     maxzoom: 15,
     paint: {
