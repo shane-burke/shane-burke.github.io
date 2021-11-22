@@ -1,0 +1,53 @@
+<html>
+
+<head>
+    <meta charset='utf-8' />
+    <title>Redlining in Utah</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.js'></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v2.0.0/mapbox-gl.css' rel='stylesheet' />
+    <script src="https://unpkg.com/intersection-observer@0.5.1/intersection-observer.js"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,400&family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  
+
+  
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;700&display=swap" rel="stylesheet">
+  
+  
+  
+  <script type="text/javascript" src="geodata.js"></script>
+  <script type="text/javascript" src="geodata2.js"></script>
+  
+</head>
+
+<body>
+
+  
+    <div id="map"></div>
+  
+  
+    	<div id="state-legend" class="legend">
+		<h4><b><u><center>Rating</center></u></b></h4>
+		<div><span style="background-color: green"></span>A: Best</div>
+		<div><span style="background-color: lightgreen"></span>B: Still Desirable</div>
+		<div><span style="background-color: yellow"></span>C: Definitely Declining</div>
+		<div><span style="background-color: salmon"></span>D: Hazardous</div>
+    <div><span style="background-color: lightgrey"></span>E: Commercial</div>
+    <div><span style="background-color: darkgrey"></span>F: Industrial</div>
+  </div>
+  
+  <div id='story'></div>
+
+    <script src='config.js'></script>
+    <script src="./map.js"></script>
+
+  
+  
+</body>
+
+</html>
