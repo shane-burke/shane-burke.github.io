@@ -1,0 +1,326 @@
+ body {
+    margin: 0;
+    padding: 0;
+}
+
+#map {
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  position: fixed;
+}
+
+#header {
+  margin: auto;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+  padding: 2vh 0vh 5vh 0vh;
+}
+/* delete this part to remove/return header */ 
+
+
+#features {
+  padding-top: 80vh;
+  padding-bottom: 10vh;
+}
+/* can delete this */
+
+@media (max-width: 750px) {
+  #features {
+    width: 90vw;
+    margin: 3%;
+  }
+  
+  #header h1 {
+      margin: 3%;
+    }
+}  
+
+@media (min-width: 750px) {
+  #header h1 {
+    margin: auto;
+  }
+  
+}
+#footer {
+  min-height: 2vh;
+  text-align: left;
+  line-height: 25px;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+}
+
+#header h1 {
+    font-weight: 800;
+    font-family: 'Georgia', sans-serif;
+    font-size:42px;
+    text-align: left;
+    max-width: 800px;
+}
+
+#header h2 {
+    font-weight: 800;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-size:42px;
+    margin: auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+#header h4 {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-weight: 300;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    max-width: 600px;
+}
+#header p.byline {
+    font-weight: 300;
+    font-size: 0.9em;
+    margin: 0.5em auto 0.8em auto;
+}
+#header p {
+    font-family: 'Georgia';
+    font-weight: 400;
+    text-align: left;
+    font-size: 1.125rem;
+    line-height:1.75;
+    max-width: 600px;
+}
+
+
+
+#features h2 {
+    font-family: 'Georgia';
+    font-weight: 800;
+    text-align: left;
+    font-size: 2em;
+    max-width: 600px;
+    margin: 1em auto 1em auto;
+      line-height: 1.25em;
+  
+}
+
+
+#features h3 {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: 'Merriweather', serif;
+    text-align: left;
+    max-width: 50vw;
+}
+#features p {
+    font-family: 'Georgia';
+    text-align: left;
+    font-size: 1.125rem;
+    max-width: 50vw;
+    line-height: 1.75;
+    font-weight: 400;
+}
+#features .imageCredit {
+  font-size: 0.9em;
+  margin-top: -5px;
+}
+#footer p {
+   font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    max-width: 800px;
+    margin: 1em auto;
+}
+a, a:hover, a:visited {
+  color: #326891;
+}
+
+#byline {
+  color: black;
+}
+
+.hidden {
+  visibility: hidden;
+}
+.centered {
+  width: 60vw;
+  margin: 0 auto;
+}
+.lefty {
+  width: 40vw;
+  margin-left: 5vw;
+}
+.righty {
+  width: 40vw;
+  margin-left: 55vw;
+}
+.fully {
+  width: 100%;
+  margin: auto;
+}
+
+.blanky {
+  width: 1vw;
+  margin-left: 0vw;
+}
+
+.light {
+  color: #333;
+  background-color: #ffffff;
+}
+.dark {
+  color: #FAF9F6;
+  background-color: #191a1a;
+}
+.step {
+  padding-bottom: 50vh;
+  opacity: 0.90;
+/*   opacity: 0.15; */
+}
+.step.active {
+/*   opacity: 0.99; */
+  z-index: 100;
+}
+.step div {
+  padding: 25px 50px;
+  line-height: 25px;
+  font-size: 13px;
+}
+.step img {
+  width: 100%;
+}
+@media (max-width: 750px) {
+  .centered, .lefty, .righty, .fully {
+    width: 90vw;
+    margin:  auto;
+  }
+  
+  p {
+    margin: 3%
+  } 
+  
+}
+
+
+@media (min-width: 750px) {
+
+  p {
+    margin: 1em auto 1em auto;
+}
+  
+  #header {
+    margin: auto auto auto auto;
+  }
+}
+
+
+/* Fix issue on mobile browser where scroll breaks  */
+.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan, 
+.mapboxgl-canvas-container.mapboxgl-touch-zoom-rotate.mapboxgl-touch-drag-pan .mapboxgl-canvas {
+  touch-action: unset;
+}
+
+
+
+.masthead {
+   display: block;
+  margin-left: auto;
+  margin-right: auto;
+  filter: invert(.2);
+}
+
+
+.legend {
+			background-color: white;
+			border-radius: 3px;
+			bottom: 10.2%;
+			font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+			padding: 10px;
+			text-align: left;
+			line-height: 18px;
+			color: #000000;
+			position: fixed;
+			right:5.1%;
+			z-index: 0;
+		}
+
+
+		.legend h4 {
+			margin: 0 0 5px;
+			font: 13px/24px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+		}
+
+		.legend i {
+			width: 18px;
+			height: 18px;
+			float: left;
+			margin-right: 8px;
+			opacity: 0.7;
+		}
+
+		.legend div span {
+			border-radius: 50%;
+			display: inline-block;
+			height: 10px;
+			margin-right: 5px;
+			width: 10px;
+			}
+
+#stained { 
+  color: 6f0000
+}
+
+a {
+  color: navy;
+}
+
+#blank {
+  opacity: 0;
+}
+
+    
+    #menu {
+background: #72bcd4;
+z-index: 1;
+border-radius: 25px;
+font-family: 'Open Sans', sans-serif;
+}
+ 
+#menu a {
+font-size: 1.125em;
+color: #404040;
+display: block;
+margin: 20;
+padding: 0;
+padding: 10px;
+text-decoration: none;
+border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+text-align: center;
+font-weight:800;
+}
+ 
+#menu a:last-child {
+border: none;
+}
+ 
+#menu a:hover {
+background-color: #f8f8f8;
+color: #404040;
+}
+ 
+#menu a.active {
+background-color: #72bcd4;
+color: #404040;
+}
+
+
+.instruction {
+   font-family: 'Roboto Condensed', sans-serif;
+      text-align: left;
+    font-size: 1.125rem;
+    max-width: 50vw;
+    line-height: 1.75;
+    font-weight: 400;
+}
