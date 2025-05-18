@@ -1,0 +1,339 @@
+/*~*~* Default/Desktop *~*~*~*/
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  /*background-color:white;*/
+}
+
+/* Top container: heading/text + chart (side-by-side on desktop) */
+#top-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  width: 97%;
+  max-width: 850px;
+  margin: 5px auto;
+  background-color: #fff;
+  opacity: 0.95;
+  border-radius: 9px;
+  padding: 5px 5px 0px 5px;
+}
+
+/* Left side on desktop: heading, text, slider, notes */
+#console-left {
+  flex: 1;
+  padding-right: 20px;
+}
+.session {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.row {
+  height: 12px;
+  width: 100%;
+  accent-color: #2f3538; /* changes the slider thumb color */
+}
+
+/* Right side: line chart container (300px wide on desktop) */
+#chart-container {
+  width: 300px;
+  margin-left: 10px;
+}
+/* Only svg of line chart. 300×200 on desktop. */
+#chart {
+  width: 300px;
+  height: 200px;
+  overflow: hidden;
+}
+
+/* Bottom container: the map */
+#map-container {
+  width: 97%;
+  max-width: 850px;
+  height: 425px;
+  margin: 0 auto 30px;
+  border-radius: 9px;
+  overflow: hidden;
+  position: relative;
+  background: #ccc; /* fallback if map doesn't load */
+}
+#map {
+  width: 100%;
+  height: 100%;
+}
+
+button {
+  background-color: #5ac33e;
+  border: none;
+  color: white;
+  padding: 4px 4px 4px 4px;
+  border-radius: 4px;
+  width: 80px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 5px;
+  font-family: "Suisse Screen";
+  cursor: pointer;
+}
+
+/* Text styles */
+#hed {
+  margin-top: 0px;
+  margin: 0px;
+  font-family: "Suisse Works";
+  font-weight: 600;
+  font-size: 28px;
+  font-style: normal;
+  text-decoration: none;
+  color: #000000;
+  padding: 3px 5px;
+}
+
+#dek {
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 450;
+  font-style: normal;
+  text-decoration: none;
+  font-family: "Suisse Screen";
+  padding: 0px;
+  color: #000000;
+  top: 5px;
+  border: none;
+  margin-left: 0px;
+  display: block;
+  padding: 3px 5px;
+}
+
+#hed2 {
+  font-weight: normal;
+  font-size: 15px;
+  line-height: 20px;
+  font-style: normal;
+  text-decoration: none;
+  font-family: "Suisse Screen";
+  font-weight: 600;
+  padding: 0px;
+  color: #000000;
+  top: 5px;
+  border: none;
+  margin-left: 0px;
+  margin-bottom: 10px;
+  display: block;
+  padding: 1px 1px;
+}
+
+#hed3 {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 20px;
+  font-style: normal;
+  text-decoration: none;
+  font-family: "Suisse Works";
+  font-weight: 600;
+  padding: 0px;
+  color: #000000;
+  top: 5px;
+  border: none;
+  margin-left: 0px;
+  display: block;
+  padding: 0px 5px;
+  display: block;
+  margin-bottom: 0px;
+  margin-top: 10px;
+}
+
+.tick text {
+  font-family: Suisse Screen; /* Or any font you prefer */
+  font-size: 12px; /* Adjust size as needed */
+  color: #222426;
+}
+
+.proposed-sites {
+  color: #d49400; /* Or your desired color */
+}
+
+#notes {
+  font-weight: normal;
+  font-size: 11px;
+  line-height: 16px;
+  font-style: normal;
+  text-decoration: none;
+  font-family: "Suisse Intl Mono", monospace;
+  margin: 10px 10px 0px 10px;
+  padding: 0px;
+  color: #6d686e;
+  position: absolute;
+  bottom: 5px;
+  right: 0%;
+  z-index: 100;
+  border: none;
+  margin-left: 0px;
+  display: block;
+  cursor: pointer;
+  padding: 0px;
+  border-radius: 0px;
+  text-align: right;
+  text-shadow: 1px 1px 0 #ffffff80, -1px 1px 0 #ffffff80, -1px -1px 0 #ffffff80,
+    1px -1px 0 #ffffff80;
+}
+
+.map-legend {
+  position: absolute;
+  bottom: 33px;
+  left: 5px;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 6px 3px 6px 3px;
+  border-radius: 5px;
+  z-index: 1;
+  display: flex;
+  align-items: center; /* Center vertically */
+  min-width: fit-content; /* Adjust as needed */
+  max-width: 150px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  margin: 0 5px; /* Horizontal margin between items */
+  white-space: nowrap; /* Prevent text wrapping */
+}
+
+.legend-circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.legend-circle-active {
+  background-color: #5ac33e;
+}
+
+.legend-circle-proposed {
+  background-color: #fcb205;
+}
+
+.map-legend span {
+  font-family: "Suisse Screen";
+  font-size: 13px;
+  /* Add any other font styles here if needed */
+}
+
+.doe-mobile {
+  display: none; /* default to hidden on larger screens */
+}
+
+/*~*~* Mobile/Screen width under 500px *~*~*~*/
+
+@media (max-width: 500px) {
+  /* Top container is stacked vertically on mobile, above map container */
+  #top-container {
+    flex-direction: column;
+    width: 97%;
+    margin: 0 auto;
+    border-radius: 0; /* optional: remove rounding for mobile */
+    padding: 0px 5px 0px 5px;
+  }
+
+  #dek {
+    font-size: 14px;
+  }
+
+  #notes {
+    margin: 10px 10px 0px 10px;
+  }
+
+  /* Console-left first */
+  #console-left {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 5px;
+  }
+
+  /* chart-container becomes the second stacked section: 90% wide, centered */
+  #chart-container {
+    width: 100%;
+    margin: 0 auto 10px;
+    max-width: none; /* removes the 300px limit on desktop */
+  }
+
+  /* #Chart is 100% of container width and height on mobile */
+  #chart {
+    width: 100% !important;
+    height: auto !important;
+    overflow: hidden;
+  }
+
+  /* Slider bar */
+  .session {
+    margin-top: 9px;
+    margin-bottom: 5px;
+    margin-right: 5px;
+  }
+
+  /* Map-container is the last stacked section */
+  #map-container {
+    width: 97%;
+    height: 210px;
+    margin: 0 auto 0px;
+    margin-right: 5px;
+    border-radius: 0;
+    margin-top: 5px;
+  }
+
+  #hed2 {
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 20px;
+    font-style: normal;
+    text-decoration: none;
+    font-family: "Suisse Screen";
+    font-weight: 600;
+    padding: 0px;
+    color: #000000;
+    top: 5px;
+    border: none;
+    margin-left: 0px;
+    margin-bottom: 5px;
+    display: block;
+    padding: 1px 1px;
+  }
+
+  #hed3 {
+    display: block;
+    margin-bottom: 0px;
+    margin-top: 0px;
+  }
+
+  .map-legend {
+    position: absolute;
+    bottom: 35px;
+    left: 5px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 4px;
+    border-radius: 5px;
+    z-index: 1;
+    display: flex;
+    align-items: center; /* Center vertically */
+    min-width: fit-content; /* Adjust as needed */
+    max-width: 150px;
+  }
+  
+  .doe-full {
+    display: none;
+  }
+  .doe-mobile {
+    display: inline; /* show the short version on mobile */
+  }
+}
+  
+  
+}
